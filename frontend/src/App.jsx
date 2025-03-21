@@ -21,7 +21,7 @@ const App = () => {
   const helloMsg = "Дорогие гости! Дружный коллектив проекта MarketGenius рад приветствовать вас на сайте нашего проекта! Пока мы готовим для вас крутейшее приложения для прогноза и аналитики фондового рынка, предлагаем вам не скучать и следить за криптовалютами!"
 
   const fetchCurrencies = () => {
-    axios.get('http://127.0.0.1:8000/cryptocurrencies').then(r => {
+    axios.get('api/cryptocurrencies').then(r => {
       const currenciesResponse = r.data
       const menuItems = [
         getItem('Список криптовалют', 'g1', null,
@@ -48,7 +48,7 @@ const App = () => {
 
   useEffect(() => {
     setCurrencyData(null),
-      axios.get(`http://127.0.0.1:8000/cryptocurrencies/${currencyId}`).then(r => {
+      axios.get(`/api/cryptocurrencies/${currencyId}`).then(r => {
         setCurrencyData(r.data)
       })
   }, [currencyId])
